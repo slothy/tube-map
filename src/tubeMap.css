@@ -1,0 +1,94 @@
+
+/*Journey/Meal Planner
+//http://www.dinosaursandmoustaches.com/tube-map
+//Tom Curtis, October 2013
+//In no way affiliated with TfL
+//Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported 
+//http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US*/
+
+
+html {
+	margin: 0;
+	padding: 0;
+}
+
+#map {
+	float: left;
+}
+
+#sidePanel {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	width: 300px;
+	border-left: 5px solid #dddddd;
+	font-family: "johnston itc", "gill sans", "sans serif";
+	color: #1C3F94;
+	background-color: white;
+	text-align: center;
+	overflow: scroll;
+}
+
+#sidePanel p {
+	padding: 10px;
+}
+
+#sidePanel h1 {
+	font-size: 1.5em;
+	font-weight: normal;
+}
+
+#sidePanel h2 {
+	font-size: 1em;
+	font-weight: normal;
+}
+
+#sidePanel h3 {
+	font-size: 0.8em;
+	font-weight: normal;
+}
+
+#sidePanel button {
+	width: 100px;
+	height: 25px;
+}
+
+#sidePanel div {
+	padding-bottom: 20px;
+}
+
+#sidePanel button {
+	border: 2px solid #1C3F94;
+}
+
+#sidePanel button:enabled {
+	background-color: white;
+	color: #1C3F94;
+}
+
+#sidePanel button:disabled {
+	background-color: #1C3F94;
+	color: white;	
+}
+
+#sidePanel button:active {
+	background-color: #4F72CA;
+	color: white;		
+}
+
+#sidePanel select {
+	width: 200px;
+}
+
+#resetButton {
+	margin-top: 20px;
+}
+
+#acknowledgements p {
+	text-align: left;
+	font-size: 0.75em;
+	padding-bottom: 0px;
+	margin-top: 0px;
+	line-height: 2px;
+}

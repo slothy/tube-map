@@ -1,0 +1,33 @@
+food
+	weird
+	savoury
+		meat
+			pork
+				ham
+				bacon
+				spam
+			beef
+			lamb
+			chicken
+		fish
+		vegetable
+		bread
+			sandwich
+		dairy
+			cheese
+		egg
+		soup
+	sweet
+		sweets
+		pudding
+		chocolate
+		fruit
+		cake
+		biscuits
+	sauce
+drink
+	notnormal
+	alcoholic
+	non-alcoholic
+hot
+cold

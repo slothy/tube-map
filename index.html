@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="en-gb" />
+<title>Journey / Meal Planner</title>
+<script type="text/javascript" src="src/raphael-min.js"></script>
+<script type="text/javascript" src="src/raphael-zpd.js"></script>
+<script type="text/javascript" src="src/tubeMap.js"></script>
+<script type="text/javascript" src="src/tubeLine.js"></script>
+<script type="text/javascript" src="src/tubeStation.js"></script>
+<script type="text/javascript" src="src/tubeRoute.js"></script>
+<script type="text/javascript" src="src/tubePathfinding.js"></script>
+<script type="text/javascript" src="data/tastesData.js"></script>
+<script type="text/javascript" src="data/lineData.js"></script>
+<script type="text/javascript" src="data/stationData.js"></script>
+<script type="text/javascript" src="data/routeData.js"></script>
+
+<link rel="stylesheet" type="text/css" href="src/tubeMap.css" title="tubeMap" />
+
+</head>
+<body onresize="setSizes()">
+	<div id="sidePanel">
+		<h1>Journey/<a href="http://www.telegraph.co.uk/news/uknews/road-and-rail-transport/10257633/What-do-London-Underground-stops-taste-like.html">Meal</a> Planner</h1>
+		<div id="modeSelect">
+			<h2>Mode</h2>
+			<button id="journeyButton" disabled="true" onclick="switchMode('journey')">Journey</button>
+			<button id="mealButton" onclick="switchMode('meal')">Meal</button>
+		</div>
+		<div id="navigateSelect">
+			<h2>Find route</h2>
+			<h3>From</h3>
+			<select id="fromSelect" onchange="plotPath()"></select>
+			<h3>To</h3>
+			<select id="toSelect" onchange="plotPath()"></select>
+			<h3>Via</h3>
+			<select id="viaSelect" onchange="plotPath()"></select>
+			<button id="resetButton" onclick="lines.changeColour();stations.changeColour();">Clear All</button>
+		</div>
+		<div id="options">
+			<h2>If more than one route is available</h2>
+			<select id="methodSelect" onchange="plotPath()">
+				<option value="0">Show an option at random</option>
+				<option value="1">Show the shortest route</option>
+				<option value="2">Show the longest route</option>
+				<option value="5">Show the route with the fewest stations</option>
+				<option value="6">Show the route with the most stations</option>
+			</select>
+		</div>
+		<div id="acknowledgements">
+			<p>Created by <a href="mailto:t@dinosaursandmoustaches.com">Tom Curtis</a></p>
+			<p>In no way affiliated with TfL or <a href="http://www.telegraph.co.uk/news/uknews/road-and-rail-transport/10257633/What-do-London-Underground-stops-taste-like.html">James Wannerton</a></p>
+			<p>Initial ideas helped by <a href="http://www.benbarnett.net/2010/08/24/making-an-interactive-svg-london-tube-map-with-raphael-js/">Ben Barnett</a></p>
+			<p>Download <a href="tube-map.zip">source</a> under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">CC BY-NC-SA 3.0 licence</a></p>
+		</div>
+	</div>
+
+	<div id="map">
+	<script type="text/javascript">
+	//drawing context
+	var tubeMap = Raphael(0, 0, window.innerWidth - 305, window.innerHeight);
+	var zpd = new RaphaelZPD(tubeMap, {zoom: true, pan: true, drag: false});
+
+	lines.draw();
+	lines.joinStations();
+	stations.draw();
+
+	setSizes();
+	makeSelectOptions("journey");
+	switchMode("journey", true);
+	</script>
+	</div>
+</body>
+</html>
